@@ -24,6 +24,10 @@ sl.dataframe(fruits_to_show)
 sl.header('FruityVice')
 
 # New Section for FruityVice API
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
+
+fruit_choice = sl.text_input("Which fruit?")
+sl.text("User entered: " + fruit_choice)
+
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 sl.dataframe(fruityvice_normalized)
