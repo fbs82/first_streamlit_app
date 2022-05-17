@@ -21,9 +21,9 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 sl.dataframe(fruits_to_show)
 
-# New Section for FruityVice API
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-sl.text(fruityvice_response.json())
+sl.header('FruityVice')
 
+# New Section for FruityVice API
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 sl.dataframe(fruityvice_normalized)
